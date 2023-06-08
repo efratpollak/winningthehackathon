@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
 import VidioHome from "./components/vidioHome";
+import FileHome from "./components/fileHome";
+
 
 import './App.css';
 
@@ -11,7 +13,8 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<VidioHome />} />
+          <Route path="/amateurs" element={<VidioHome />} />
+          <Route path="/search" element={<FileHome />} />
         </Routes>
       </BrowserRouter>
     
