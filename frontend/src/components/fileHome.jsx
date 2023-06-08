@@ -135,6 +135,8 @@ function VidioHome(props) {
       
       <Button sx={{padding:"20px", margin:"50px",border: "2px solid white",color:"white"}}  onClick={handleClickOpen1}>      הרשמה
            </Button>
+           <Button sx={{padding:"20px", margin:"50px",border: "2px solid white",color:"white"}}  onClick={handleClickOpen1}>      וידאיו בזמן אמת
+           </Button>
            <Button variant="outlined" sx={{padding:"20px",margin:"50px",border: "2px solid white",color:"white"}} onClick={handleClickOpen}>
 התחברות     </Button>
           </Box>
@@ -237,6 +239,8 @@ function VidioHome(props) {
           <Button onClick={handleClose1}>שליחה</Button>
         </DialogActions>
       </Dialog>
+
+      
 
       
       <Dialog
