@@ -65,7 +65,7 @@ function VidioHome(props) {
 
   const [open1, setOpen1] = React.useState(false);
   const [open2, setOpen2] = React.useState(false);
-  const [open3, setOpen3] = React.useState(false);
+ 
 
   const handleClickOpen1 = () => {
     setOpen1(true);
@@ -75,20 +75,16 @@ function VidioHome(props) {
     setOpen1(false);
   };
 
-  const handleClickOpen2 = () => {
-    setOpen2(true);
+  
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
   };
 
-  const handleClose2 = () => {
-    setOpen2(false);
-  };
-
-  const handleClickOpen3 = () => {
-    setOpen3(true);
-  };
-
-  const handleClose3 = () => {
-    setOpen3(false);
+  const handleClose = () => {
+    setOpen(false);
   };
 
   function createData(name, family, adress, poghn, drone,yes,no) {
@@ -104,7 +100,11 @@ function VidioHome(props) {
   ];
 
   const [fullName, setFullName] = useState("");
+  const [family, setfamily] = useState("");
   const [Mail, setMail] = useState("");
+  const [address, setaddress] = useState("");
+  const [pon, setpon] = useState("");
+  const [typeDrone, settypeDrone] = useState("");
 
   return (<>
    <div className="component-container">
@@ -132,10 +132,11 @@ function VidioHome(props) {
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
       
-      <Button variant="outlined" sx={{padding:"20px",margin:"50px",border: "2px solid white",color:"white"}} onClick={handleClickOpen2}>
-הרשמה     </Button>
-      <Button sx={{padding:"20px", margin:"50px",border: "2px solid white",color:"white"}}  onClick={handleClickOpen1}>      התחברות
+      
+      <Button sx={{padding:"20px", margin:"50px",border: "2px solid white",color:"white"}}  onClick={handleClickOpen1}>      הרשמה
            </Button>
+           <Button variant="outlined" sx={{padding:"20px",margin:"50px",border: "2px solid white",color:"white"}} onClick={handleClickOpen}>
+התחברות     </Button>
           </Box>
         </Toolbar>
       </AppBar>
@@ -185,6 +186,28 @@ function VidioHome(props) {
           id="Mail-basic"
           label="משפחה"
           variant="outlined"
+          onChange={(e) => {setfamily(e.target.value)}}
+        />
+        <br/>
+        <TextField
+          sx={{
+            marginTop: 3,
+            borderRadius: "15px",
+          }}
+          id="Mail-basic"
+          label="כתובת"
+          variant="outlined"
+          onChange={(e) => {setaddress(e.target.value)}}
+        />
+        <br/>
+        <TextField
+          sx={{
+            marginTop: 3,
+            borderRadius: "15px",
+          }}
+          id="Mail-basic"
+          label="מייל"
+          variant="outlined"
           onChange={(e) => {setMail(e.target.value)}}
         />
         <br/>
@@ -194,9 +217,20 @@ function VidioHome(props) {
             borderRadius: "15px",
           }}
           id="Mail-basic"
-          label="משפחה"
+          label="פלאפון"
           variant="outlined"
-          onChange={(e) => {setMail(e.target.value)}}
+          onChange={(e) => {setpon(e.target.value)}}
+        />
+         <br/>
+        <TextField
+          sx={{
+            marginTop: 3,
+            borderRadius: "15px",
+          }}
+          id="Mail-basic"
+          label="סוג רחפן"
+          variant="outlined"
+          onChange={(e) => {settypeDrone(e.target.value)}}
         />
         </DialogContent>
         <DialogActions>
@@ -204,31 +238,24 @@ function VidioHome(props) {
         </DialogActions>
       </Dialog>
 
+      
       <Dialog
-        fullScreen
-        open={open2}
-        onClose={handleClose2}
-  
+        open={open}
+        keepMounted
+        onClose={handleClose}
+        aria-describedby="alert-dialog-slide-description"
       >
-        <AppBar sx={{ position: 'relative' }}>
-          <Toolbar>
-            <IconButton
-              edge="start"
-              color="inherit"
-              onClick={handleClose2}
-              aria-label="close"
-            >
-              <CloseIcon />
-            </IconButton>
-            <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-              חדר בקרה
-            </Typography>
-            
-          </Toolbar>
-        </AppBar>
-        
+        <DialogTitle>{"!שים לב"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-slide-description">
+            מהעכשיו הינך ניתן לאיקון דרך הרשת
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>מסכים</Button>
+          <Button onClick={handleClose}>לא מסכים</Button>
+        </DialogActions>
       </Dialog>
-
        </div>
     </>
     
