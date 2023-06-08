@@ -1,0 +1,7 @@
+body {
+    background-image: url(/public/images.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;}
